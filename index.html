@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head><title>Redirecting...</title></head>
+<body>
+<script>
+  var search = window.location.search;
+  var hash = window.location.hash;
+  var params = search || hash;
+  if (params) {
+    window.location.href = 'ismart-manager://' + params;
+  } else {
+    document.body.innerHTML = 'No params found.';
+  }
+</script>
+</body>
+</html>
