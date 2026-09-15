@@ -6,8 +6,16 @@
   var search = window.location.search;
   var hash = window.location.hash;
   var params = search || hash;
-  if (params) {
-    window.location.href = 'gl-vault://' + params;
+  var target = params ? 'gl-vault://' + params : null;
+
+  if (target) {
+    // Try automatic redirect first
+    window.location.href = target;
+
+    // Fallback: show a button in case auto-redirect is blocked
+    document.body.innerHTML =
+      '<p>Tap below to return to the app:</p>' +
+      '<a href="' + target + '" style="font-size:20px;padding:12px 20px;display:inline-block;background:#4a6fa5;color:#fff;border-radius:8px;text-decoration:none;">Return to GL Vault</a>';
   } else {
     document.body.innerHTML = 'No params found.';
   }
