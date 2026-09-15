@@ -7,7 +7,7 @@
   var hash = window.location.hash;
   var params = search || hash;
   if (params) {
-    window.location.href = 'ismart-manager://' + params;
+    window.location.href = 'gl-vault://' + params;
   } else {
     document.body.innerHTML = 'No params found.';
   }
